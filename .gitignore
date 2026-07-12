@@ -1,0 +1,4 @@
+# persistent-planning local state
+.planning/sessions/
+.planning/.active_plan
+.planning/*.lock
