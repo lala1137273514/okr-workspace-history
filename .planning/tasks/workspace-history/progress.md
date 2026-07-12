@@ -2,9 +2,9 @@
 
 ## Latest checkpoint
 
-- Status: history baseline verified; remote sync pending
-- Current phase: Phase 3
-- Next action: run acceptance checks, then request Git remote/commit/push authorization
+- Status: history baseline verified and published; ongoing maintenance active
+- Current phase: Phase 4
+- Next action: update this ledger when a new material Workspace task finishes
 
 ## Session log
 
@@ -47,9 +47,12 @@ No repository, commit, remote, or push was created during these failed attempts.
 - Remote: `https://github.com/lala1137273514/okr-workspace-history.git`
 - `git ls-remote origin`: exit 0; repository is reachable and currently empty.
 - Publication scope: only `.gitignore`, `.planning/enabled`, and `.planning/tasks/workspace-history/`.
+- Initial push: `main` published successfully.
+- Remote readback: temporary clone contained exactly 10 tracked files; `plan list` discovered `workspace-history`.
+- Fresh clone reports HEAD ahead of recorded verification until that checkout runs `plan verify-run` and `plan sync-head`; this is an expected drift gate, not missing Plan data.
 
 ## Remaining boundary
 
 - 本地持久化已建立。
-- GitHub repository 与 `origin` 已配置；尚未 commit/push，因此跨设备同步未完成。
+- GitHub repository、`origin` 和首次 push 已完成；跨设备 Plan 文件已可拉取。
 - Git 集成动作等待用户明确授权。

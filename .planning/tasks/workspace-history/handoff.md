@@ -2,9 +2,9 @@
 
 ## Resume here
 
-- Current phase: Phase 3 — 验证与跨设备交接
-- Next action: 检查最新 verification 结果；获得授权后配置 Git remote、commit、push
-- Blocking issue: none; remote is reachable, initial commit/push in progress
+- Current phase: Phase 4 — 持续维护
+- Next action: 新任务形成材料结论后更新总账本
+- Blocking issue: none
 
 ## Current state
 
@@ -27,11 +27,14 @@
 After the repository is pushed and cloned:
 
 ```bash
-plan status workspace-history
+plan list
+plan verify-run workspace-history -- zsh .planning/tasks/workspace-history/verify.sh
+plan sync-head workspace-history
 plan attach workspace-history --session <new-session-id> --platform codex --access coordinator
+plan status workspace-history
 ```
 
-Do not copy local binding state between machines. The Git files are portable; session bindings are machine-local.
+首次 clone 后，远端 commit 通常会领先于计划中记录的 verified HEAD；先执行便携验证和 `sync-head`，再 attach。不要在设备间复制 binding state。Git 文件可移植，session binding 是机器本地状态。
 
 ## Safety boundary
 
@@ -40,6 +43,4 @@ Do not copy local binding state between machines. The Git files are portable; se
 
 ## Unblock options
 
-1. 网络恢复后重试安装官方 GitHub CLI，并完成 `gh auth login`。
-2. 用户手动创建私有空仓库 `okr-workspace-history`，提供仓库 URL；本机网络恢复后配置 remote/push。
-3. 启用 Codex Chrome 扩展连接并确保 Chrome 可访问 GitHub，再从网页创建仓库。
+Remote publication is complete. No unblock action remains.

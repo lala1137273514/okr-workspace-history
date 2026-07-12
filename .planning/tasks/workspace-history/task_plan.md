@@ -13,7 +13,7 @@
 
 ## Current Phase
 
-Phase 3
+Phase 4
 
 ## Phases
 
@@ -36,8 +36,9 @@ Phase 3
 
 - [x] 验证 30 个 Session ID 无遗漏、无重复
 - [x] 验证 attestation、task status 和文件结构
-- [ ] 用户授权后配置 Git remote、commit 并 push，使任务真正跨设备可用
-- **Status:** in_progress
+- [x] 配置 Git remote、commit 并 push
+- [x] 从临时 clone 读回 10 个安全 Plan 文件并发现任务
+- **Status:** completed
 
 ### Phase 4: 持续维护
 
@@ -45,13 +46,13 @@ Phase 3
 - [ ] 在 `progress.md` 记录真实命令、结果和缺口
 - [ ] 新设备执行 `plan attach workspace-history --session <session-id> --platform codex`
 - [ ] 历史任务稳定后，按主题拆分独立任务，主账本仅保留索引
-- **Status:** pending
+- **Status:** in_progress
 
 ## 后续任务池
 
 | 优先级 | 工作流 | 下一步 | 完成证据 |
 |---|---|---|---|
-| P0 | 跨设备同步 | 配置 remote、首次 commit/push | 第二台设备可 clone/pull 并通过 `plan status workspace-history` 读取 |
+| P0 | 跨设备同步 | 已完成首次 push；新设备按 handoff 做 re-verify/sync/attach | 新 checkout 可通过 `plan list` 发现任务 |
 | P0 | 周报真实闭环 | 用 W14 做 `lark-weekly-report` 首次真实运行 | 全源采集、缺口登记、草稿、用户确认、发布后读回 |
 | P1 | 周报自动化 | 仅在权限预检和非发布演练后启用定时草稿 | 定时生成草稿；不自动发布 |
 | P1 | Q2 OKR 归档 | 固化收尾证据、score 字段限制和文档索引 | OKR 状态、证据文档、未解决 API 限制可追溯 |
@@ -67,9 +68,10 @@ Phase 3
 - [x] 主题分布合计为 30
 - [x] `plan verify workspace-history` 通过
 - [x] `plan status workspace-history` 无 gate error
-- [x] `zsh .planning/tasks/workspace-history/verify.sh` 输出 30/30 匹配
+- [x] `zsh .planning/tasks/workspace-history/verify.sh --with-local-db` 输出 30 个唯一 ID 且与本机 DB 匹配
 - [x] `git diff --check` 通过
 - [x] 跨设备同步未执行前，状态明确为“本地已持久化，尚未远端同步”
+- [x] 远端临时 clone 仅包含 10 个预期文件，并可通过 `plan list` 发现任务
 
 ## Decisions
 
@@ -78,7 +80,7 @@ Phase 3
 | 使用单一 `workspace-history` 总账本 | 当前目标是任务历史与恢复入口，不是重建每个旧任务的完整实施计划 | 30 个 Session 多数属于同一周报/OKR证据链 |
 | Session 目标与完成事实分开 | 部分 Session 只有任务意图或不完整最终输出 | rollout 末尾信息质量不一致 |
 | 不存原始私密消息、token、认证信息 | Plan 将进入 Git 并跨设备同步 | persistent planning security contract |
-| 暂不 complete | Git remote、commit、push 未获授权，跨设备目标尚未闭环 | 当前仓库无 commit、无已验证远端 |
+| 保持 `in_progress` | `workspace-history` 是持续更新的总账本，不应在首次发布后关闭 | Phase 4 持续维护仍在进行 |
 
 ## Errors
 
