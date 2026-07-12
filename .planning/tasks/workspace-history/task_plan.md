@@ -71,7 +71,7 @@ Phase 4
 - [x] `zsh .planning/tasks/workspace-history/verify.sh --with-local-db` 输出 30 个唯一 ID 且与本机 DB 匹配
 - [x] `git diff --check` 通过
 - [x] 跨设备同步未执行前，状态明确为“本地已持久化，尚未远端同步”
-- [x] 远端临时 clone 仅包含 10 个预期文件，并可通过 `plan list` 发现任务
+- [x] 远端临时 clone 仅包含预期的安全 Plan 文件，并可通过 `plan list` 发现任务；新版 README 纳入后为 11 个文件
 
 ## Decisions
 

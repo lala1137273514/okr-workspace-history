@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
-  "head": "cc0620ba948606b557dea12e382acc6c71282fa3",
+  "head": "77748ee8e7d8fde419b0eaf38bd1e71b115069b5",
   "branch": "main",
   "command": [
     "zsh",
-    ".planning/tasks/workspace-history/verify.sh"
+    ".planning/tasks/workspace-history/verify.sh",
+    "--with-local-db"
   ],
   "exit_code": 0,
   "worktree_fingerprint": "77722828c991260f2a2025ab9e0ec451856d9713cd81962b11b065221d295ce9",
-  "started_at": "2026-07-12T07:44:24+00:00",
-  "completed_at": "2026-07-12T07:44:24+00:00"
+  "started_at": "2026-07-12T08:50:24+00:00",
+  "completed_at": "2026-07-12T08:50:24+00:00"
 }

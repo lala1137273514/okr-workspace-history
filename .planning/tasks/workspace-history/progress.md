@@ -16,6 +16,7 @@
 | 2026-07-12 15:28 CST | Codex | Initialized Git after user approval | Empty repository initialized on `main` |
 | 2026-07-12 15:28 CST | Codex | Enabled planning and initialized task | `workspace-history` created and attached as coordinator |
 | 2026-07-12 15:31 CST | Codex | Wrote plan and findings | 30 Session IDs indexed; next work pool recorded |
+| 2026-07-12 16:12 CST | Codex | Audited updated Agent and planning rules | Found stale OpenSpec link, README format, handoff commit text, and unpushed verification state |
 
 ## Test results
 
@@ -50,9 +51,10 @@ No repository, commit, remote, or push was created during these failed attempts.
 - Initial push: `main` published successfully.
 - Remote readback: temporary clone contained exactly 10 tracked files; `plan list` discovered `workspace-history`.
 - Fresh clone reports HEAD ahead of recorded verification until that checkout runs `plan verify-run` and `plan sync-head`; this is an expected drift gate, not missing Plan data.
+- Agent-rule sync adds the managed `.planning/README.md`; expected remote tracked-file count becomes 11.
 
 ## Remaining boundary
 
 - 本地持久化已建立。
 - GitHub repository、`origin` 和首次 push 已完成；跨设备 Plan 文件已可拉取。
-- Git 集成动作等待用户明确授权。
+- 本轮规则同步的 commit/push 已获用户授权；未来 Git 写操作仍按当次授权边界执行。

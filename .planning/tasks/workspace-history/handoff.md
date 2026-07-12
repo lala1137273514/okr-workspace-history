@@ -12,7 +12,7 @@
 - Task: `workspace-history`
 - Status: `in_progress`
 - Session baseline: 30 entries
-- Last verified commit: `HEAD`（仓库尚无 commit）
+- Last verified commit: use `plan status workspace-history` / `metadata.json` as the current source of truth
 
 ## Read first
 
@@ -39,7 +39,7 @@ plan status workspace-history
 ## Safety boundary
 
 - Do not commit credentials, auth QR images, raw private chat content, or tool output containing tokens.
-- Do not mark complete until remote sync is verified from another checkout/device or user narrows the goal to local persistence only.
+- Keep this task `in_progress` while it remains the active Workspace history ledger; complete only when the ledger is intentionally retired and freshly verified.
 
 ## Unblock options
 
